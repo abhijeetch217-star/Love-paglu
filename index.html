@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hey Cutiepie 💖</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="page active" id="page1">
+  <h1>Hey Cutiepie 💕</h1>
+  <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" class="gif">
+  <button onclick="nextPage()">Start ✨</button>
+</section>
+
+<section class="page" id="page2">
+  <div class="card">
+    <p>You make my heart smile every day 🌸</p>
+  </div>
+  <button onclick="nextPage()">Continue 💖</button>
+</section>
+
+<section class="page" id="page3">
+  <h2>A Gift For You 🎁</h2>
+  <div class="gift" onclick="nextPage()">🎁</div>
+</section>
+
+<section class="page" id="page4">
+  <h2>Open the Gifts 💝</h2>
+  <div class="gifts">
+    <div class="mini-gift" onclick="reveal(this)">🎁</div>
+    <div class="mini-gift" onclick="reveal(this)">🎁</div>
+    <div class="mini-gift" onclick="reveal(this)">🎁</div>
+  </div>
+  <button onclick="nextPage()">Continue the Surprise ✨</button>
+</section>
+
+<section class="page" id="page5">
+  <h2>Love Quiz 💞</h2>
+  <p>Who is the most loving person?</p>
+  <button onclick="wrong()">You</button>
+  <button onclick="right()">My Most Beautiful Ever 💖</button>
+  <button onclick="nextPage()">Next 💘</button>
+</section>
+
+<section class="page" id="page6">
+  <h2>Our Moment 🎥</h2>
+  <video class="love-video" controls muted playsinline>
+    <source src="VID-20251104-WA0014.mp4" type="video/mp4">
+  </video>
+  <button onclick="nextPage()">Continue 💓</button>
+</section>
+
+<section class="page" id="page7">
+  <h2>You Are My Favorite 🌸</h2>
+  <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" class="gif">
+  <button onclick="nextPage()">Almost There 💞</button>
+</section>
+
+<section class="page" id="page8">
+  <h1>I Love You Always 💖</h1>
+</section>
+
+<!-- Soft Popup -->
+<div id="popup" class="popup">
+  <div class="popup-box">
+    <p>Aree paglu tum ho 🥺💗</p>
+    <button onclick="closePopup()">Okay 😚</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
