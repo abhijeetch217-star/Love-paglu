@@ -1,74 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Hey Cutiepie 💖</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>For My Paglu 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+body{
+  margin:0;
+  background:linear-gradient(135deg,#ffe6f0,#fff3d9,#e6f7ff);
+  overflow:hidden;
+}
+.page{
+  display:none;
+  height:100vh;
+  padding:20px;
+  text-align:center;
+  animation:fade 1s ease;
+}
+.page.active{display:block;}
+
+@keyframes fade{
+  from{opacity:0; transform:scale(0.95);}
+  to{opacity:1; transform:scale(1);}
+}
+
+.box{
+  background:rgba(255,255,255,0.85);
+  border-radius:25px;
+  padding:25px;
+  max-width:350px;
+  margin:50px auto;
+  box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+
+button{
+  padding:12px 25px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+  color:#fff;
+  font-size:16px;
+  cursor:pointer;
+  margin:10px;
+  transition:0.3s;
+}
+button:hover{
+  transform:scale(1.1);
+}
+
+.gif{
+  width:200px;
+  margin:10px auto;
+}
+
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+.popup-box{
+  background:#fff;
+  padding:25px;
+  border-radius:20px;
+  animation:pop 0.5s ease;
+}
+@keyframes pop{
+  from{transform:scale(0.6); opacity:0;}
+  to{transform:scale(1); opacity:1;}
+}
+
+.heart{
+  position:absolute;
+  color:pink;
+  animation:float 5s linear infinite;
+}
+@keyframes float{
+  0%{bottom:-10px; opacity:0;}
+  50%{opacity:1;}
+  100%{bottom:110vh; opacity:0;}
+}
+
+video{
+  width:100%;
+  border-radius:20px;
+}
+</style>
 </head>
+
 <body>
 
-<section class="page active" id="page1">
-  <h1>Hey Cutiepie 💕</h1>
-  <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" class="gif">
-  <button onclick="nextPage()">Start ✨</button>
-</section>
-
-<section class="page" id="page2">
-  <div class="card">
-    <p>You make my heart smile every day 🌸</p>
+<!-- PAGE 1 -->
+<section class="page active">
+  <div class="box">
+    <img class="gif" src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
+    <h2>Hey Cutiepie 💕</h2>
+    <p>Can we talk for a moment?</p>
+    <button onclick="next()">Continue 💖</button>
   </div>
-  <button onclick="nextPage()">Continue 💖</button>
 </section>
 
-<section class="page" id="page3">
-  <h2>A Gift For You 🎁</h2>
-  <div class="gift" onclick="nextPage()">🎁</div>
-</section>
-
-<section class="page" id="page4">
-  <h2>Open the Gifts 💝</h2>
-  <div class="gifts">
-    <div class="mini-gift" onclick="reveal(this)">🎁</div>
-    <div class="mini-gift" onclick="reveal(this)">🎁</div>
-    <div class="mini-gift" onclick="reveal(this)">🎁</div>
+<!-- PAGE 2 -->
+<section class="page">
+  <div class="box">
+    <h3>You are special 🌸</h3>
+    <p>Every heartbeat of mine knows your name</p>
+    <button onclick="next()">Next 💞</button>
   </div>
-  <button onclick="nextPage()">Continue the Surprise ✨</button>
 </section>
 
-<section class="page" id="page5">
-  <h2>Love Quiz 💞</h2>
-  <p>Who is the most loving person?</p>
-  <button onclick="wrong()">You</button>
-  <button onclick="right()">My Most Beautiful Ever 💖</button>
-  <button onclick="nextPage()">Next 💘</button>
+<!-- PAGE 3 -->
+<section class="page">
+  <div class="box">
+    <p>💖 You are the most beautiful</p>
+    <p>💖 You make every day magical</p>
+    <p>💖 You are my favorite feeling</p>
+    <button onclick="next()">Continue 💗</button>
+  </div>
 </section>
 
-<section class="page" id="page6">
-  <h2>Our Moment 🎥</h2>
-  <video class="love-video" controls muted playsinline>
-    <source src="VID-20251104-WA0014.mp4" type="video/mp4">
-  </video>
-  <button onclick="nextPage()">Continue 💓</button>
+<!-- PAGE 4 -->
+<section class="page">
+  <div class="box">
+    <h3>🎁 Tap Reminder</h3>
+    <button onclick="showGift('You are my happiness 💝')">Gift 1</button>
+    <button onclick="showGift('You are my home 🏡')">Gift 2</button>
+    <button onclick="showGift('You are my forever ♾️')">Gift 3</button>
+    <br>
+    <button onclick="next()">Continue Surprise ✨</button>
+  </div>
 </section>
 
-<section class="page" id="page7">
-  <h2>You Are My Favorite 🌸</h2>
-  <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" class="gif">
-  <button onclick="nextPage()">Almost There 💞</button>
+<!-- PAGE 5 QUIZ -->
+<section class="page">
+  <div class="box">
+    <h3>Who is the most loving? 💕</h3>
+    <button onclick="wrong()">You</button>
+    <button onclick="right()">My Most Beautiful Ever 💖</button>
+  </div>
 </section>
 
-<section class="page" id="page8">
-  <h1>I Love You Always 💖</h1>
+<!-- PAGE 6 VIDEO -->
+<section class="page">
+  <div class="box">
+    <h3>Our Moment 🎥</h3>
+    <video controls playsinline>
+      <source src="./VID-20251104-WA0014.mp4" type="video/mp4">
+    </video>
+    <button onclick="next()">Continue 💓</button>
+  </div>
 </section>
 
-<!-- Soft Popup -->
-<div id="popup" class="popup">
+<!-- PAGE 7 -->
+<section class="page">
+  <div class="box">
+    <img class="gif" src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
+    <h3>You are my favorite 🌷</h3>
+    <button onclick="next()">Almost There 💖</button>
+  </div>
+</section>
+
+<!-- PAGE 8 -->
+<section class="page">
+  <div class="box">
+    <h1>I Love You Always 💘</h1>
+    <p>More than words. More than forever.</p>
+  </div>
+</section>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
   <div class="popup-box">
-    <p>Aree paglu tum ho 🥺💗</p>
-    <button onclick="closePopup()">Okay 😚</button>
+    <p id="popupText"></p>
+    <button onclick="closePopup()">Okay 🥰</button>
   </div>
 </div>
 
-<script src="script.js"></script>
+<script>
+let pages=document.querySelectorAll('.page');
+let i=0;
+
+function next(){
+  pages[i].classList.remove('active');
+  i++;
+  pages[i].classList.add('active');
+}
+
+function wrong(){
+  popupText.innerText="Aree paglu tum ho 💖";
+  popup.style.display="flex";
+}
+
+function right(){
+  next();
+}
+
+function showGift(msg){
+  popupText.innerText=msg;
+  popup.style.display="flex";
+}
+
+function closePopup(){
+  popup.style.display="none";
+}
+
+/* Hearts */
+setInterval(()=>{
+  let h=document.createElement('div');
+  h.className='heart';
+  h.innerText='💗';
+  h.style.left=Math.random()*100+'vw';
+  h.style.fontSize=(20+Math.random()*20)+'px';
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),5000);
+},400);
+</script>
+
 </body>
 </html>
